@@ -1,0 +1,30 @@
+.button {
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+	font-size: 1rem;
+    width: fit-content;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    transition: background var(--animation);
+}
+.search_bar {
+    padding: 0.5rem 1rem;
+    width: auto;
+	max-height: 40px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	outline: none;
+	border: 1px solid var(--black);
+
+    &::placeholder {
+	color: var(--white);
+	transition: color var(--animation);
+    }
+    &:active::placeholder, &:focus-within::placeholder {
+        color: var(--grey);
+    }
+    @media (min-width: 391px) {
+        width: 272px;
+    }
+}

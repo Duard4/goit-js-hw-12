@@ -8,11 +8,38 @@
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./container.css');
-@import url('./animations.css');
+@import url('./form-elems.css');
+@import url('./gallery.css');
+@import url('./loader.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.blue {
+	background-color: var(--blue);
+}
+.red {
+	background-color: var(--red);
+}
+.blue:hover {
+	background-color: var(--hblue);
+}
+
+.iziToast-capsule {
+	.iziToast.iziToast-color-red {
+		background-color: var(--red);
+	}
+  .iziToast.iziToast-theme-dark .iziToast-close  {
+    background-size: 14px;
+  }
+}
+.iziToast-capsule .iziToast > .iziToast-body .iziToast-message,
+.iziToast > .iziToast-body .iziToast-title {
+	max-width: 320px;
+  color: var(--white);
+	font-size: 1rem;
+	line-height: 1.5;
+	letter-spacing: 0.5px;
+}
+.more {
+	margin-top: 2rem;
+	margin-inline: auto;
+	display: none;
+}

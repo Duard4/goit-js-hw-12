@@ -1,11 +1,8 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+*, *::after, *::before {
   margin: 0;
+  padding: 0;
+  /* outline: 2px solid lime; */
+  /* background-color: hsl(red, 100%, 75%, 0.5); */
 }
 
 p:last-child {
