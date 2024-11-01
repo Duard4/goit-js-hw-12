@@ -26,19 +26,19 @@
 	.iziToast.iziToast-color-red {
 		background-color: var(--red);
 	}
-  .iziToast.iziToast-theme-dark .iziToast-close  {
-    background-size: 14px;
-  }
+	.iziToast.iziToast-theme-dark .iziToast-close {
+		background-size: 14px;
+	}
 }
 .iziToast-capsule .iziToast > .iziToast-body .iziToast-message,
 .iziToast > .iziToast-body .iziToast-title {
 	max-width: 320px;
-  color: var(--white);
+	color: var(--white);
 	font-size: 1rem;
 	line-height: 1.5;
 	letter-spacing: 0.5px;
 }
-.more {
+.load {
 	margin-top: 2rem;
 	margin-inline: auto;
 	display: none;

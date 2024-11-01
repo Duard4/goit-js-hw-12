@@ -6,7 +6,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 const form = document.querySelector('form');
 const search = document.querySelector('.search_bar');
 const loader = document.querySelector('.loader');
-const loadButton = document.querySelector('.more');
+const loadButton = document.querySelector('.load');
 const gallery = document.querySelector('.gallery');
 
 const source = 'https://pixabay.com/api/?';
@@ -100,6 +100,7 @@ function raiseInfo(info) {
 		theme: 'dark',
 	});
 }
+
 function clear() {
 	loader.style.display = 'none';
 	search.value = '';
