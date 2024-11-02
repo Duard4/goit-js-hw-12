@@ -34,16 +34,9 @@ const messages = {
 // Global Variables
 let page;
 
-// Event Dispatching
-const dispatchEvent = array =>
-	document.dispatchEvent(new CustomEvent('imagesFetched', { detail: array }));
-
 // Event Listeners
 form.addEventListener('submit', handleFormSubmit);
 loadButton.addEventListener('click', handleLoadMore);
-document.addEventListener('imagesFetched', event => {
-	renderGallery(event.detail);
-});
 
 // Main Functions
 function handleFormSubmit(event) {
@@ -51,6 +44,7 @@ function handleFormSubmit(event) {
 	const searchValue = getSearchValue();
 	if (!searchValue) return;
 
+	showLoadBtn(false);
 	resetGallery();
 	showLoader(true);
 	initializeSearch(searchValue);
@@ -66,13 +60,14 @@ function handleLoadMore() {
 	showLoader(true);
 	incrementPage();
 	performSearch();
+	setTimeout(scrollToNextImages, 800);
 }
 
 function performSearch() {
 	ImageSearch(config.source, config.options)
 		.then(posts => handleImageSearch(posts))
 		.catch(error => {
-			console.error('API Error:', error); // Log the full error object for debugging
+			console.error('API Error:', error);
 			raiseError(
 				error.message || 'An unexpected error occurred. Please try again.'
 			);
@@ -83,13 +78,25 @@ function performSearch() {
 		});
 }
 
+// Smooth Scroll Function
+function scrollToNextImages() {
+	const galleryCard = document.querySelector('.gallery .gallery_item');
+	if (galleryCard) {
+		const cardHeight = galleryCard.getBoundingClientRect().height;
+		window.scrollBy({
+			top: cardHeight * 2 + 20,
+			left: 0,
+			behavior: 'smooth',
+		});
+	}
+}
+
 // Helper Functions
 function handleImageSearch(posts) {
 	if (posts.total) {
-		dispatchEvent(posts.hits);
+		renderGallery(posts.hits);
 		showLoadBtn(true);
 		checkIfEndOfResults(posts.total);
-		console.log(posts);
 	} else {
 		raiseError(messages.noMatchError);
 	}
